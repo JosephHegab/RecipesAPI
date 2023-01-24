@@ -4,7 +4,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const path = require("path");
-
+const PORT = process.env.PORT || 3000;
 mongoose.set("strictQuery", false);
 
 mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
@@ -59,6 +59,6 @@ app.delete("/recipe/:id", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
-  console.log("Server started");
+app.listen(PORT, () => {
+  console.log("Listening on port " + PORT);
 });
