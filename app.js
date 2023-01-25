@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000;
 mongoose.set("strictQuery", false);
 
 mongoose.connect(
-  "mongodb+srv://joseph123:rV32mBRUPm.yXtY@cluster0.7pi0kvv.mongodb.net/test",
+  "mongodb+srv://root:EoeSL7UI6Ovy5KpG@cluster0.7aauazq.mongodb.net/?retryWrites=true&w=majority",
   { useNewUrlParser: true }
 );
 const db = mongoose.connection;
