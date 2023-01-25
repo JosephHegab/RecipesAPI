@@ -1,4 +1,3 @@
-require("dotenv").config();
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
@@ -7,7 +6,10 @@ const path = require("path");
 const PORT = process.env.PORT || 3000;
 mongoose.set("strictQuery", false);
 
-mongoose.connect(process.env.DATABASE_URL, { useNewUrlParser: true });
+mongoose.connect(
+  "mongodb+srv://joseph123:rV32mBRUPm.yXtY@cluster0.7pi0kvv.mongodb.net/test",
+  { useNewUrlParser: true }
+);
 const db = mongoose.connection;
 db.on("error", (error) => {
   console.error(error);
@@ -15,7 +17,6 @@ db.on("error", (error) => {
 db.once("open", (error) => {
   console.log("Connected to Database");
 });
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
