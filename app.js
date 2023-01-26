@@ -55,8 +55,13 @@ app.get("/recipe", (req, res) => {
 });
 
 app.delete("/recipe/:id", (req, res) => {
+  if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).send({ error: "Invalid id format" });
+  }
   Recipe.findByIdAndDelete(req.params.id, (err, recipe) => {
-    return res.send(recipe);
+    if (err) return res.status(500).send(err);
+    if (!recipe) return res.status(404).send({ error: "Recipe not found" });
+    return res.status(200).send({ message: "Recipe successfully deleted" });
   });
 });
 
