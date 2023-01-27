@@ -1,0 +1,11 @@
+.container-fluid {
+  padding: 3% 15%;
+}
+.btn-offcanvas {
+  margin-bottom: 3rem;
+}
+h1 {
+  color: #444;
+  text-align: center;
+  margin-top: 4rem 4rem;
+}

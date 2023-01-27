@@ -5,8 +5,135 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>RECIPESAPI</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+
+    <link href="style.css" rel="stylesheet" />
   </head>
   <body>
-    <h1>WELCOME TO THE RECIPES API</h1>
+    <div class="container-fluid">
+      <h1>WELCOME TO THE RECIPES BANK API</h1>
+      <button
+        class="btn btn-info btn-offcanvas"
+        type="button"
+        data-bs-toggle="offcanvas"
+        data-bs-target="#offcanvasWithBothOptions"
+        aria-controls="offcanvasWithBothOptions"
+      >
+        Guide
+      </button>
+
+      <div
+        class="offcanvas offcanvas-start"
+        data-bs-scroll="true"
+        tabindex="-1"
+        id="offcanvasWithBothOptions"
+        aria-labelledby="offcanvasWithBothOptionsLabel"
+      >
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">
+            This API allows users to create, read, update, and delete recipes.
+            To use the API, you will need to make HTTP requests to the server
+            where the API is hosted
+            <a href="https://recipesbank.azurewebsites.net/"
+              >https://recipesbank.azurewebsites.net/</a
+            >
+            Here are some examples of how to use the API:
+          </h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="offcanvas"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul>
+            <li>
+              To create a new recipe, make a POST request to the "/recipe"
+              endpoint, with the recipe name and recipe details in the request
+              body. The API will respond with a JSON object containing the new
+              recipe.
+            </li>
+            <li>
+              To get a list of all recipes, make a GET request to the "/recipe"
+              endpoint. The API will respond with a JSON array of all the
+              recipes.
+            </li>
+            <li>
+              To delete a recipe by id, make a DELETE request to the
+              "/recipe/:id" endpoint, with the id of the recipe in the URL. The
+              API will respond with a message indicating that the recipe was
+              deleted successfully.
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="input-group mb-3">
+        <button class="btn btn-primary" type="button" id="button-addon1">
+          GET
+        </button>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="/recipe"
+          aria-label="Example text with button addon"
+          aria-describedby="button-addon1"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <button class="btn btn-success" type="button" id="button-addon2">
+          POST
+        </button>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="/recipe"
+          aria-label="Example text with button addon"
+          aria-describedby="button-addon2"
+        />
+      </div>
+      <div class="input-group mb-3">
+        <button class="btn btn-danger" type="button" id="button-addon3">
+          DELETE
+        </button>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="/recipe/{id}"
+          aria-label="Example text with button addon"
+          aria-describedby="button-addon3"
+        />
+      </div>
+      <p>
+        <button
+          class="btn btn-secondary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#collapseWidthExample"
+          aria-expanded="false"
+          aria-controls="collapseWidthExample"
+        >
+          Schemas
+        </button>
+      </p>
+      <div style="min-height: 120px">
+        <div class="collapse collapse-horizontal" id="collapseWidthExample">
+          <div class="card card-body" style="width: 300px">
+            recipeName: { type: String } <br />
+            recipe: { type: String }
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
